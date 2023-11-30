@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selezione Appartamenti</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h3 {
+            color: #2196F3;
+        }
+
+        ol {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            background-color: #03A9F4;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        label.checked {
+            background-color: #0277BD;
+        }
+
+        #calcolaBtn {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #risultato {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Dimmi con chi vai e ti dirò quanto paghi 😜</h3>
+
+    <ol>
+        <!-- Aggiungi tutti i checkbox fino a Flag 19 -->
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Peppe Coppola</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Cris</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Gianni</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Verde</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Trilli</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Caggetto</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Valeria</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Martinelli</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Dedo</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Barry</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Enrico</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Luca</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Benny</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Mariagina</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Francesca</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Lisa</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Martina</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Frank Eternit</label></li>
+        <li><label><input type="checkbox" onclick="calcolaPrezzo()"> Frank Eternit Woman</label></li>
+    </ol>
+
+    <div id="risultato"></div>
+
+    <script>
+        function calcolaPrezzo() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            var numFlags = checkboxes.length;
+            var risultato = 0;
+
+            if (numFlags === 1) {
+                risultato = 560;
+            } else if (numFlags === 2) {
+                risultato = 280;
+            } else if (numFlags === 3) {
+                risultato = 187; 
+            } else if (numFlags === 4) {
+                risultato = 191.25;
+            } else if (numFlags === 5) {
+                risultato = 227.50;
+            } else if (numFlags === 6) {
+                risultato = 189.60;
+            } else if (numFlags === 7) {
+                risultato = 189.30;
+            } else if (numFlags === 8) {
+                risultato = 212.20;
+            } else if (numFlags === 9) {
+                risultato = 188.60;
+            } else if (numFlags === 10) {
+                risultato = 190.25;
+            } else if (numFlags === 11) {
+                risultato = 206.85;
+            } else if (numFlags === 12) {
+                risultato = 189.60;
+            } else if (numFlags === 13) {
+                risultato = 189.45;
+            } else if (numFlags === 14) {
+                risultato = 202.50;
+            } else if (numFlags === 15) {
+                risultato = 189.00;
+            } else if (numFlags === 16) {
+                risultato = 190.00;
+            } else if (numFlags === 17) {
+                risultato = 211.80;
+            } else if (numFlags === 18) {
+                risultato = 200.00;
+            } else if (numFlags === 19) {
+                risultato = 189.50;
+            }
+
+            document.getElementById("risultato").innerHTML = "Il prezzo è di " + risultato.toFixed(2) + "€ a persona";
+
+            // Rimuovi la classe 'checked' da tutti i label
+            var labels = document.querySelectorAll('label');
+            labels.forEach(function (label) {
+                label.classList.remove('checked');
+            });
+
+            // Aggiungi la classe 'checked' solo ai label corrispondenti ai checkbox selezionati
+            checkboxes.forEach(function (checkbox) {
+                var label = checkbox.parentNode;
+                label.classList.add('checked');
+            });
+        }
+    </script>
+
+</body>
+</html>
